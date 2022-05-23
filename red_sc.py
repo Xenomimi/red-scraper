@@ -1,5 +1,10 @@
-import random
-tab = []
-for x in range(0, 10):
-    tab.append(random.randint(0,10))
-print(tab)
+import requests
+
+a = input("Podaj link do zdjęcia: ")
+nazwa = input("Podaj nazwe pliku")
+r = requests.get(a)
+
+f = open(nazwa+".png", "wb")
+f.write(r.content)
+f.close()
+print("Pobrano zdjęcie! :)")
